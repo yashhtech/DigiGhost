@@ -6,10 +6,8 @@ const menuBtn = document.querySelector(".menu-btn");
 const menuOverlay = document.querySelector(".menu-overlay");
 
 menuBtn.addEventListener("click", () => {
-
     menuBtn.classList.toggle("active");
     menuOverlay.classList.toggle("active");
-
 });
 
 });
@@ -34,65 +32,15 @@ initSmoke();
 
 });
 
-function initScroll(){
 
-const locoScroll = new LocomotiveScroll({
-el: document.querySelector("[data-scroll-container]"),
-smooth:true,
-multiplier:0.9,
-lerp:0.08
-});
-
-locoScroll.on("scroll", ScrollTrigger.update);
-
-ScrollTrigger.scrollerProxy("[data-scroll-container]",{
-scrollTop(value){
-return arguments.length
-? locoScroll.scrollTo(value,0,0)
-: locoScroll.scroll.instance.scroll.y;
-},
-getBoundingClientRect(){
-return {top:0,left:0,width:window.innerWidth,height:window.innerHeight};
-}
-});
-
-ScrollTrigger.addEventListener("refresh",()=>locoScroll.update());
-ScrollTrigger.refresh();
-
-/* HERO ZOOM */
-
-gsap.to(".hero-title",{
-scale:0.4,
-opacity:0.2,
-scrollTrigger:{
-trigger:".hero",
-scroller:"[data-scroll-container]",
-start:"top top",
-end:"bottom top",
-scrub:true
-}
-});
-
-/* SECTION REVEAL */
-
-gsap.to(".section",{
-opacity:1,
-y:0,
-scrollTrigger:{
-trigger:".section",
-scroller:"[data-scroll-container]",
-start:"top 80%",
-end:"top 40%",
-scrub:true
-}
-});
-
-}
+/* ================= SINGLE initScroll (FIXED) ================= */
 
 function initScroll(){
 
+const scrollContainer = document.querySelector("[data-scroll-container]");
+
 const locoScroll = new LocomotiveScroll({
-    el: document.querySelector("[data-scroll-container]"),
+    el: scrollContainer,
     smooth: true,
     multiplier: 1,
     lerp: 0.08
@@ -100,24 +48,45 @@ const locoScroll = new LocomotiveScroll({
 
 locoScroll.on("scroll", ScrollTrigger.update);
 
-ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+ScrollTrigger.scrollerProxy(scrollContainer, {
     scrollTop(value) {
         return arguments.length
-            ? locoScroll.scrollTo(value, 0, 0)
+            ? locoScroll.scrollTo(value, {duration: 0, disableLerp: true})
             : locoScroll.scroll.instance.scroll.y;
     },
     getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+        return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    },
+    pinType: scrollContainer.style.transform ? "transform" : "fixed"
+});
+
+
+ScrollTrigger.defaults({
+    scroller: scrollContainer
+});
+
+
+let tl = gsap.timeline({
+    scrollTrigger:{
+        trigger: ".hero",
+        start: "top top",
+        end: "+=2000",
+        scrub: 1.5,
+        pin: true,
+        pinSpacing: true,
+        anticipatePin: 1
     }
 });
 
-ScrollTrigger.defaults({
-    scroller: "[data-scroll-container]"
-});
 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-/* HERO ZOOM OUT */
+/* HERO ZOOM */
 
 gsap.fromTo(".hero-title",
 {
@@ -135,7 +104,6 @@ end:"bottom top",
 scrub:1
 }
 });
-
 
 /* SECTION REVEAL */
 
@@ -156,11 +124,13 @@ scrub:1
 }
 });
 
-
 ScrollTrigger.refresh();
 }
 
 
+
+
+/* ================= INFINITE LOOP ================= */
 
 function infiniteLoop(rowSelector, speed = 40){
 
@@ -170,7 +140,6 @@ function infiniteLoop(rowSelector, speed = 40){
 
         const items = row.children;
 
-        // clone items
         [...items].forEach(item=>{
             const clone = item.cloneNode(true);
             row.appendChild(clone);
@@ -194,7 +163,7 @@ infiniteLoop(".row", 45);
 
 
 
-/* CUSTOM CURSOR */
+/* ================= CUSTOM CURSOR ================= */
 
 const cursor = document.querySelector(".cursor");
 const follower = document.querySelector(".cursor-follower");
@@ -222,7 +191,8 @@ function animateCursor(){
 }
 animateCursor();
 
-/* HOVER TARGETS */
+
+/* ================= HOVER TARGETS ================= */
 
 const hoverElements = document.querySelectorAll(
     "a, .menu-btn, .hero-title"
