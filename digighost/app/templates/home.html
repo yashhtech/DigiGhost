@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigiGhost</title>
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+</head>
+
+<body>
+
+
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<div class="loader">
+    <div class="loader-inner">
+        <img src="{% static 'images/digilogo.jpeg' %}">
+    </div>
+</div>
+
+<div data-scroll-container>
+
+<nav class="nav">
+
+<div class="top-tabs">
+    <a href="#">Work</a>
+    <a href="#">About</a>
+    <a href="#">Team</a>
+    <a href="#">Careers</a>
+</div>
+
+     
+     <div class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+</nav>
+
+<div class="menu-overlay">
+    <a href="#">Home</a>
+    <a href="#">Work</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</div>
+
+<section class="hero" data-scroll-section>
+
+
+
+
+
+    <canvas id="smoke"></canvas>
+<div class="image-wall">
+
+    <div class="row">
+        <div class="item">
+            <img src="{% static 'images/p1.jpg' %}">
+            <p class="caption">Creative Campaign</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p2.jpg' %}">
+            <p class="caption">Brand Strategy</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p3.jpg' %}">
+            <p class="caption">Digital Innovation</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p4.jpg' %}">
+            <p class="caption">Immersive Experience</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p5.jpg' %}">
+            <p class="caption">Global Reach</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p6.jpg' %}">
+            <p class="caption">Visual Identity</p>
+        </div>
+    </div>
+
+    <div class="row">
+       <div class="item">
+            <img src="{% static 'images/p2.jpg' %}">
+            <p class="caption">Creative Campaign</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p4.jpg' %}">
+            <p class="caption">Brand Strategy</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p6.jpg' %}">
+            <p class="caption">Digital Innovation</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p5.jpg' %}">
+            <p class="caption">Immersive Experience</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p1.jpg' %}">
+            <p class="caption">Global Reach</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p3.jpg' %}">
+            <p class="caption">Visual Identity</p>
+        </div>
+    </div>
+    <div class="row">
+       <div class="item">
+            <img src="{% static 'images/p5.jpg' %}">
+            <p class="caption">Creative Campaign</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p3.jpg' %}">
+            <p class="caption">Brand Strategy</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p1.jpg' %}">
+            <p class="caption">Digital Innovation</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p6.jpg' %}">
+            <p class="caption">Immersive Experience</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p4.jpg' %}">
+            <p class="caption">Global Reach</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p2.jpg' %}">
+            <p class="caption">Visual Identity</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="item">
+            <img src="{% static 'images/p6.jpg' %}">
+            <p class="caption">Creative Campaign</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p5.jpg' %}">
+            <p class="caption">Brand Strategy</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p4.jpg' %}">
+            <p class="caption">Digital Innovation</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p3.jpg' %}">
+            <p class="caption">Immersive Experience</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p2.jpg' %}">
+            <p class="caption">Global Reach</p>
+        </div>
+        <div class="item">
+            <img src="{% static 'images/p1.jpg' %}">
+            <p class="caption">Visual Identity</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<h1 class="hero-title">𝕯i𝖌i 𝖌h𝖔st</h1>
+</section>
+
+<section class="section" data-scroll-section>
+    <h2 class="reveal-text">
+        We build immersive digital experiences.
+    </h2>
+</section>
+
+<section class="fog" data-scroll-section>
+    <div class="red-fog"></div>
+</section>
+
+<section class="red" data-scroll-section>
+    <h1>THE FUTURE IS RED</h1>
+</section>
+
+</div>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
