@@ -9,9 +9,9 @@
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"/>
-
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/Flip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
@@ -24,11 +24,6 @@
 <div class="cursor"></div>
 <div class="cursor-follower"></div>
 
-<div class="loader">
-    <div class="loader-inner">
-        <img src="{% static 'images/digilogo.jpeg' %}">
-    </div>
-</div>
 
 <div data-scroll-container>
 
@@ -36,12 +31,13 @@
 
 <div class="top-tabs">
     <a href="#">Work</a>
-    <a href="#">About</a>
+    <a href="{% url 'about' %}">About</a>
     <a href="#">Team</a>
     <a href="#">Careers</a>
 </div>
 
-     
+<div class="nav-center-target"></div>
+ 
      <div class="menu-btn">
         <span></span>
         <span></span>
@@ -52,17 +48,12 @@
 <div class="menu-overlay">
     <a href="#">Home</a>
     <a href="#">Work</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'contact' %}">Contact</a>
 </div>
 
 <section class="hero" data-scroll-section>
 
-
-
-
-
-    <div class="smoke-overlay"></div>
 <div class="image-wall">
 
     <div class="row">
@@ -176,27 +167,387 @@
 
 
 
-<h1 class="hero-title">𝕯i𝖌i 𝖌h𝖔st</h1>
-</section>
+<h1 class="hero-title logo-text">𝕯i𝖌i 𝖌h𝖔st</h1>
 
-<section class="section" data-scroll-section>
-    <h2 class="reveal-text">
-   A digital content creator produces informative or entertaining material for online platforms,
-    such as social media, blogs, or videos, to engage a specific audience,
-     build communities, and boost brand visibility. 
-    They work across varied formats—including video editing, 
-    graphic design, and writing—requiring a mix of creativity and technical skills.     </h2>
-</section>
 
-<section class="fog" data-scroll-section>
-    <div class="red-fog"></div>
+<div class="hero-arrows">
+    <div class="arrow left">&#8592;</div>
+    <div class="arrow right">&#8594;</div>
+</div>
+
+
+ <svg class="morph-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path id="morphPath" fill="#ff0000"
+      d="M0,160 C360,240 1080,80 1440,160 L1440,320 L0,320 Z">
+    </path>
+  </svg>
 </section>
 
 <section class="red" data-scroll-section>
-    <h1>THE FUTURE IS RED</h1>
-</section>
+    <div class="red-content">
+<h2 class="reveal-text dock-text">
+  A  digital  content  creator  produces  informative or entertaining material for online platforms,
+  such as social media, blogs, or videos, to engage a specific audience,
+  build communities, and boost brand visibility.
+</h2>
+
+<h2 class="reveal-text dock-text light">
+  They work across varied formats—including video editing, 
+  graphic design, and writing—requiring a mix of creativity and technical skills.
+</h2>
+
+        <div class="red-buttons">
+            <button class="capsule-btn">See Our Work</button>
+            <button class="capsule-btn outline">Start Your Story</button>
+        </div>
+ <div class="bento-section section">
+
+  <div class="bento-gallery" id="bentoGallery">
+
+    <!-- 1 -->
+    <div class="gallery__item big">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"/>
+      <div class="overlay">
+        <h3>Creative Workspace</h3>
+        <p>
+          A modern creative workspace represents more than just a desk and a screen. 
+          It symbolizes innovation, focus, and collaboration. The open layout, natural 
+          lighting, and minimal aesthetic inspire productivity while allowing ideas 
+          to flow freely. Designers, developers, and strategists work together here 
+          to transform imagination into digital reality. This environment supports 
+          brainstorming sessions, structured planning, and high-performance execution. 
+          Every corner reflects creativity, from wall sketches to glowing monitors. 
+          The workspace becomes a hub where strategy meets design and where 
+          digital experiences are born through experimentation and refined thinking.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="gallery__item tall">
+      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"/>
+      <div class="overlay">
+        <h3>Brand Strategy</h3>
+        <p>
+          Brand strategy defines the voice, personality, and direction of a company. 
+          It aligns visual identity, storytelling, and customer engagement into a 
+          powerful unified presence. A strong strategy builds emotional connections 
+          with audiences and establishes trust in competitive markets. Through 
+          research, analysis, and creativity, brands create meaningful experiences 
+          that resonate deeply. Strategy ensures consistency across platforms and 
+          builds long-term recognition. It transforms simple products into memorable 
+          experiences that influence perception and drive loyalty.
+        </p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="gallery__item wide">
+      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2"/>
+      <div class="overlay">
+        <h3>Content Production</h3>
+        <p>
+          Content production combines storytelling, visuals, and technical execution 
+          to create impactful digital experiences. From scripting to filming and editing, 
+          every step requires creativity and precision. High-quality production enhances 
+          engagement and communicates ideas effectively. Whether through video, photography, 
+          or motion graphics, content shapes perception and strengthens digital presence. 
+          It turns abstract ideas into immersive narratives that audiences remember.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="gallery__item medium">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"/>
+      <div class="overlay">
+        <h3>Photography</h3>
+        <p>
+          Photography captures emotion, depth, and authenticity in a single frame. 
+          It freezes moments in time and transforms them into powerful visual stories. 
+          Lighting, composition, and perspective work together to communicate mood 
+          and meaning. Professional photography elevates brand image and strengthens 
+          storytelling through realism and artistic expression.
+        </p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="gallery__item small">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"/>
+      <div class="overlay">
+        <h3>Team Collaboration</h3>
+        <p>
+          Collaboration fuels innovation. When creative minds connect, ideas expand 
+          beyond individual perspectives. Teams brainstorm, refine, and execute 
+          concepts collectively, ensuring stronger results and higher efficiency. 
+          Communication and synergy transform projects into successful outcomes.
+        </p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="gallery__item tall">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"/>
+      <div class="overlay">
+        <h3>Global Reach</h3>
+        <p>
+          Digital platforms allow brands to reach global audiences instantly. 
+          With strategic distribution and optimized campaigns, businesses expand 
+          beyond geographical limitations. Global reach builds awareness, increases 
+          engagement, and connects diverse communities through powerful storytelling.
+        </p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="gallery__item wide">
+      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"/>
+      <div class="overlay">
+        <h3>Identity Design</h3>
+        <p>
+          Identity design defines how a brand looks and feels. Logos, typography, 
+          colors, and visuals create a consistent image across platforms. Strong 
+          identity design enhances recognition and builds emotional connection with 
+          audiences over time.
+        </p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="gallery__item small">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"/>
+      <div class="overlay">
+        <h3>Concept Development</h3>
+        <p>
+          Concept development transforms raw ideas into structured strategies. 
+          It involves research, experimentation, and refinement to ensure clarity 
+          and innovation. Strong concepts provide direction and guide creative execution.
+        </p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="gallery__item big">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"/>
+      <div class="overlay">
+        <h3>Storytelling</h3>
+        <p>
+          Storytelling is the foundation of powerful communication. It connects 
+          brands and audiences emotionally through relatable narratives. By blending 
+          visuals, words, and experience, storytelling transforms marketing into 
+          meaningful engagement. It builds trust, sparks inspiration, and creates 
+          long-lasting impressions.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+ 
+<!-- ================= FEATURE SECTION ================= -->
+<div class="main-feature-title">
+  <h2>
+    DIGI GHOST FOR DIGITAL MARKETING <br>
+     TRAINING IN SATNA
+  </h2>
+</div>
+<div class="features-section section">
+  <div class="features-grid">
+
+    <!-- CARD 1 -->
+    <div class="feature-card">
+      <div class="feature-image">
+        <img src="{% static 'images/uncertainity.png' %}" alt="">
+      </div>
+      <h3>Reduce Uncertainty</h3>
+      <p>
+        By adopting strategic digital solutions, we help brands
+        minimize risks, improve decision-making, and confidently
+        navigate market challenges.
+      </p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="feature-card">
+      <div class="feature-image">
+        <img src="{% static 'images/innovative.jpg' %}" alt="">
+      </div>
+      <h3>Innovative Ideas</h3>
+      <p>
+        We combine creativity with data-driven insights to build
+        impactful campaigns that disrupt industries and create
+        meaningful digital experiences.
+      </p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="feature-card">
+      <div class="feature-image">
+        <img src="{% static 'images/success growth.avif' %}" alt="">
+      </div>
+      <h3>Growth Focus</h3>
+      <p>
+        Growth is our core objective. We design scalable strategies
+        that accelerate visibility, engagement, and long-term
+        business success.
+      </p>
+    </div>
+
+  </div>
 
 </div>
+
+
+<!-- ================= BONUS TOOLS SECTION ================= -->
+
+<section class="bonus-section">
+
+  <div class="bonus-container">
+
+    <p class="bonus-text">
+      <strong>Bonus:</strong> Free access to 25+ tools like Hootsuite, Trello, Canva Pro, and more during training.
+    </p>
+
+    <div class="bonus-grid">
+
+      <div class="bonus-card">
+        <img src="{% static 'images/hootsuite.jpg' %}" alt="Hootsuite">
+      </div>
+
+      <div class="bonus-card">
+        <img src="{% static 'images/canva.jpg' %}" alt="Canva">
+      </div>
+
+      <div class="bonus-card">
+        <img src="{% static 'images/trello.jpg' %}" alt="Trello">
+      </div>
+
+      <div class="bonus-card">
+        <img src="{% static 'images/google.jpg' %}" alt="Google">
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="batch-section">
+    <div class="container">
+        <h2 class="section-title" style="color: #fffefe; margin-bottom: 40px; font-weight:bolder;">
+            Digi Ghost Current <br> and Upcoming Batches 
+            <span class="white-dot"></span>
+        </h2>
+
+        <div class="batch-wrapper">
+
+            <!-- Card 1 -->
+            <div class="batch-card">
+                <div class="icon">📊</div>
+                <h3>Advance Digital Marketing Course</h3>
+
+                <ul>
+                    <li>📅 3 Months</li>
+                    <li>📅 Mon–Fri</li>
+                    <li>⏰ 5:00 to 6:30 PM</li>
+                    <li>📌 New Batch Starts on 10 Mar, 2026</li>
+                </ul>
+
+                <a href="#" class="explore-btn">
+                    Explore Now
+                    <span></span>
+                </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="batch-card">
+                <div class="icon">📁</div>
+                <h3>Advance Digital Marketing Course</h3>
+
+                <ul>
+                    <li>📅 3 Months</li>
+                    <li>📅 Mon–Fri</li>
+                    <li>⏰ 2:00 to 3:30 PM</li>
+                    <li>📌 New Batch Starts on 23 Mar, 2026</li>
+                </ul>
+
+                <a href="#" class="explore-btn">
+                    Explore Now
+                    <span></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</section>
+
+<footer class="dg-footer" data-scroll-section>
+
+<div class="footer-parallax"></div>
+
+<div class="footer-container">
+
+    <!-- LEFT -->
+    <div class="footer-col">
+        <a href="#">
+            <img src="{% static 'images/digilogo.jpeg' %}" class="footer-logo">
+        </a>
+
+        <p>
+            DigiGhost builds powerful digital experiences,
+            trains creative marketers, and transforms brands
+            with next-generation strategies.
+        </p>
+
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+        <h3><a href="#">Quick Links</a></h3>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Work</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="footer-col">
+        <h3><a href="#">Resources</a></h3>
+        <a href="#">Training</a>
+        <a href="#">Workshops</a>
+        <a href="#">Placements</a>
+        <a href="#">Student Journey</a>
+        <a href="#">Alumni</a>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+        <h3><a href="#">Contact</a></h3>
+        <a href="#">+91 6262106888</a>
+        <a href="#">info@digighost.com</a>
+        <a href="#">Satna, Madhya Pradesh</a>
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+    <a href="#">
+        © 2026 DigiGhost. All Rights Reserved.
+    </a>
+</div>
+
+</footer>
 
 <script src="{% static 'js/main.js' %}"></script>
 </body>

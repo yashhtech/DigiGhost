@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{% block title %}DigiGhost{% endblock %}</title>
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<div data-scroll-container>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="nav">
+
+    <div class="top-tabs">
+        <a href="#">Work</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="#">Careers</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </div>
+
+    <div class="nav-center-target"></div>
+
+    <div class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div class="menu-overlay">
+    <a href="{% url 'home' %}">Home</a>
+    <a href="#">Work</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="#">Careers</a>
+    <a href="{% url 'contact' %}">Contact</a>
+</div>
+
+<!-- ================= PAGE CONTENT BLOCK ================= -->
+{% block content %}
+{% endblock %}
+
+
+
+
+
+<footer class="dg-footer" data-scroll-section>
+
+<div class="footer-parallax"></div>
+
+<div class="footer-container">
+
+    <!-- LEFT -->
+    <div class="footer-col">
+        <a href="#">
+            <img src="{% static 'images/digilogo.jpeg' %}" class="footer-logo">
+        </a>
+
+        <p>
+            DigiGhost builds powerful digital experiences,
+            trains creative marketers, and transforms brands
+            with next-generation strategies.
+        </p>
+
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+        <h3><a href="#">Quick Links</a></h3>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Work</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="footer-col">
+        <h3><a href="#">Resources</a></h3>
+        <a href="#">Training</a>
+        <a href="#">Workshops</a>
+        <a href="#">Placements</a>
+        <a href="#">Student Journey</a>
+        <a href="#">Alumni</a>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+        <h3><a href="#">Contact</a></h3>
+        <a href="#">+91 6262106888</a>
+        <a href="#">info@digighost.com</a>
+        <a href="#">Satna, Madhya Pradesh</a>
+    </div>
+
+</div>
+
+<div class="footer-bottom">
+    <a href="#">
+        © 2026 DigiGhost. All Rights Reserved.
+    </a>
+</div>
+
+</footer>
+
+</div>
+
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact | DigiGhost{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- HERO -->
+
+<section class="contact-hero" data-scroll-section>
+
+<video autoplay muted loop playsinline class="hero-video">
+<source src="{% static 'videos/contacthero.mp4' %}" type="video/mp4">
+</video>
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+<h1 class="hero-title">
+DIGITAL MARKETING
+</h1>
+
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services" data-scroll-section>
+
+<div class="services-container">
+
+<div class="service-card">
+
+<img src="{% static 'images/marketing.jpg' %}">
+
+<h3>Digital Marketing</h3>
+
+<p>
+Grow your business with SEO, Social Media Marketing,
+Performance Ads and Content Marketing strategies.
+</p>
+
+<a href="#" class="know-btn">Know More</a>
+
+</div>
+
+
+<div class="service-card">
+
+<img src="{% static 'images/webdev.jpg' %}">
+
+<h3>Web Development</h3>
+
+<p>
+We build modern websites, ecommerce platforms and
+high-performance digital products for brands.
+</p>
+
+<a href="#" class="know-btn">Know More</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- MAP -->
+
+<section class="map-section" data-scroll-section>
+
+<h2 class="section-heading">Finding Us is Difficult ??</h2>
+
+<div class="map-container">
+
+<iframe
+src="https://www.google.com/maps?q=Bhopal&output=embed"
+loading="lazy">
+</iframe>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section class="contact-section" data-scroll-section>
+
+<div class="contact-wrapper">
+
+<div class="contact-left">
+
+<h2>Contact DigiGhost</h2>
+
+<p>
+Let’s build something powerful together.
+Send us a message and our team will reach you shortly.
+</p>
+
+<div class="big-social">
+
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+
+</div>
+
+</div>
+
+
+
+<div class="contact-form-box">
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email Address">
+
+<input type="tel" placeholder="Phone Number">
+
+<textarea placeholder="Your Message"></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+gsap.from(".hero-title",{
+y:100,
+opacity:0,
+duration:1
+})
+
+
+
+
+
+
+</script>
+{% endblock %}
