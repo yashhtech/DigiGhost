@@ -29,11 +29,31 @@
 <nav class="nav">
 
     <div class="top-tabs">
-        <a href="#">Work</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="#">Careers</a>
-        <a href="{% url 'contact' %}">Contact</a>
-    </div>
+
+<a href="#">Work</a>
+<a href="{% url 'about' %}">About</a>
+<a href="#">Blogs</a>
+
+<div class="services-dropdown">
+<a href="{% url 'services' %}">Services</a>
+
+<div class="services-menu">
+
+<a href="#">SEO Services</a>
+<a href="#">Web Design & Development</a>
+<a href="#">Brand Strategy</a>
+<a href="#">Performance Marketing</a>
+<a href="#">Content Marketing</a>
+<a href="#">Analytics Agency</a>
+<a href="#">Graphic Design</a>
+<a href="#">Email Marketing</a>
+<a href="#">Social Media Management</a>
+<a href="#">Strategy & Consultancy</a>
+
+</div>
+</div>
+
+</div>
 
     <div class="nav-center-target"></div>
 
@@ -46,10 +66,14 @@
 
 <div class="menu-overlay">
     <a href="{% url 'home' %}">Home</a>
-    <a href="#">Work</a>
-    <a href="{% url 'about' %}">About</a>
-    <a href="#">Careers</a>
     <a href="{% url 'contact' %}">Contact</a>
+
+    <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
 </div>
 
 <!-- ================= PAGE CONTENT BLOCK ================= -->
@@ -89,11 +113,34 @@
     <!-- QUICK LINKS -->
     <div class="footer-col">
         <h3><a href="#">Quick Links</a></h3>
-        <a href="#">Home</a>
-        <a href="#">About</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
         <a href="#">Careers</a>
         <a href="#">Work</a>
-        <a href="#">Contact</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <div class="services-dropdown footer-dropdown">
+
+<a href="{% url 'services' %}">Services</a>
+
+<div class="services-menu">
+
+<a href="#">SEO Services</a>
+<a href="#">Web Design & Development</a>
+<a href="#">Brand Strategy & Positioning</a>
+<a href="#">Performance Marketing</a>
+<a href="#">Content Marketing</a>
+<a href="#">Analytics Agency</a>
+<a href="#">Graphic Design</a>
+<a href="#">Email Marketing</a>
+<a href="#">Social Media Management</a>
+<a href="#">Strategy & Consultancy</a>
+
+</div>
+
+</div>
+        <a href="{% url 'privacy' %}">Privacy Policy</a>
+        <a href="{% url 'terms' %}">Terms & Conditions</a>
+
     </div>
 
     <!-- RESOURCES -->

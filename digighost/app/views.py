@@ -10,3 +10,12 @@ def contact(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def terms(request):
+    return render(request, 'terms_conditions.html')
+
+def privacy(request):
+    return render(request, 'privacy_policy.html')
+
+def services(request):
+    return render(request, 'services.html') 
