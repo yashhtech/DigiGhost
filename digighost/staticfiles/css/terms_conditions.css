@@ -1,0 +1,97 @@
+/* TERMS PAGE */
+
+.terms-section{
+    background:#000000;
+    color:white;
+    min-height:100vh;
+    padding:120px 2%;
+    font-family:"Outfit";
+
+
+}
+
+.terms-hero{
+    text-align:center;
+    margin-bottom:80px;
+    font-family:"Outfit";
+
+}
+
+.terms-hero h1{
+    font-size:60px;
+    letter-spacing:4px;
+    font-family:"Outfit";
+
+}
+
+.terms-hero p{
+    margin-top:10px;
+    opacity:.8;
+    font-family:"Outfit";
+
+}
+
+.terms-container{
+    max-width:900px;
+    margin:auto;
+    padding:40px 10px;
+    font-family:"Outfit";
+
+    
+}
+
+.terms-container h2{
+    font-size:34px;
+    margin-top:30px;
+    margin-bottom:20px;
+    font-family:"Outfit";
+
+}
+
+.terms-container p{
+    line-height:1.7;
+    margin-bottom:10px;
+    opacity:.9;
+    font-family:"Outfit";
+    
+
+}
+
+.terms-container p:hover{
+    color: rgb(245, 236, 56);
+    transition: .3s;
+    scale: 1.09;
+}
+
+.terms-container ul{
+    padding-left:20px;
+    margin-bottom:20px;
+}
+
+.terms-container li{
+    margin-bottom:10px;
+}
+
+.terms-container li:hover{
+    color: rgb(245, 236, 56);
+    transition: .3s;
+    scale: 1.09;
+}
+
+.date{
+    opacity:.7;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.terms-hero h1{
+    font-size:40px;
+}
+
+.terms-container h2{
+    font-size:24px;
+}
+
+}

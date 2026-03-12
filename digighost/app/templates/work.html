@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About | DigiGhost{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/work.css' %}">
+
+<!-- HERO SECTION -->
+
+<section class="hero" data-scroll-section>
+    <div class="hero-container">
+
+        <h1>What Does a Digital Marketer Do?</h1>
+
+        <p>
+        A digital marketer promotes products, services, or brands through online channels to drive traffic,
+         engagement, and sales. They develop strategies for websites, social media, SEO, email, 
+         and paid ads while analyzing data to optimize performance. 
+        Their goal is to increase brand awareness and convert online users into customers.
+        </p>
+
+        <a href="#" class="cta">Book a free consultation</a>
+
+    </div>
+</section>
+
+
+
+<!-- DISCOVER SECTION -->
+
+<section class="discover-section" data-scroll-section>
+
+<div class="discover-left">
+
+<p class="portfolio-tag">
+<span></span> WORK
+</p>
+
+<h2>
+DISCOVER OUR <br>
+<span>CAPABILITIES</span>
+</h2>
+
+</div>
+
+</section>
+
+
+
+<!-- FILTER TABS -->
+
+<section class="filter-section" data-scroll-section>
+
+<div class="filters">
+
+<button class="filter-btn active" data-filter="all">ALL</button>
+
+<button class="filter-btn" data-filter="web">
+WEBSITE DEVELOPMENT
+</button>
+
+<button class="filter-btn" data-filter="print">
+PRINT MEDIA
+</button>
+
+<button class="filter-btn" data-filter="social">
+SOCIAL MEDIA
+</button>
+
+<button class="filter-btn" data-filter="packaging">
+PACKAGING
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- PORTFOLIO GRID -->
+
+<section class="portfolio-grid" data-scroll-section>
+
+<div class="grid">
+
+
+<!-- ITEM -->
+
+<div class="item web">
+<img src="{% static 'images/work1.jpg' %}">
+<div class="overlay">
+<h3>Website Design</h3>
+<p>Modern business website</p>
+</div>
+</div>
+
+
+<div class="item print">
+<img src="{% static 'images/work2.jpg' %}">
+<div class="overlay">
+<h3>Magazine Design</h3>
+<p>Creative editorial layout</p>
+</div>
+</div>
+
+
+<div class="item social">
+<img src="{% static 'images/work3.jpg' %}">
+<div class="overlay">
+<h3>Instagram Campaign</h3>
+<p>Brand promotion design</p>
+</div>
+</div>
+
+
+<div class="item packaging">
+<img src="{% static 'images/work4.jpg' %}">
+<div class="overlay">
+<h3>Product Packaging</h3>
+<p>Premium box design</p>
+</div>
+</div>
+
+
+
+<!-- REPEAT ITEMS (20+) -->
+
+
+<div class="item web">
+<img src="{% static 'images/work5.jpg' %}">
+<div class="overlay">
+<h3>Ecommerce Website</h3>
+<p>Online shopping UI</p>
+</div>
+</div>
+
+
+<div class="item print">
+<img src="{% static 'images/work6.jpg' %}">
+<div class="overlay">
+<h3>Brochure Design</h3>
+<p>Corporate marketing brochure</p>
+</div>
+</div>
+
+
+<div class="item social">
+<img src="{% static 'images/work7.jpg' %}">
+<div class="overlay">
+<h3>Social Ads</h3>
+<p>Facebook marketing design</p>
+</div>
+</div>
+
+
+<div class="item packaging">
+<img src="{% static 'images/work8.jpg' %}">
+<div class="overlay">
+<h3>Food Packaging</h3>
+<p>Snack brand packaging</p>
+</div>
+</div>
+
+
+
+<div class="item web">
+<img src="{% static 'images/work9.jpg' %}">
+<div class="overlay">
+<h3>Startup Website</h3>
+<p>Modern UI UX design</p>
+</div>
+</div>
+
+
+<div class="item print">
+<img src="{% static 'images/work10.jpg' %}">
+<div class="overlay">
+<h3>Poster Design</h3>
+<p>Event poster</p>
+</div>
+</div>
+
+
+<div class="item social">
+<img src="{% static 'images/work11.jpg' %}">
+<div class="overlay">
+<h3>Instagram Carousel</h3>
+<p>Product promotion</p>
+</div>
+</div>
+
+
+<div class="item packaging">
+<img src="{% static 'images/work12.jpg' %}">
+<div class="overlay">
+<h3>Beauty Packaging</h3>
+<p>Cosmetic box design</p>
+</div>
+</div>
+
+
+
+</div>
+
+</section>
+
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const items = document.querySelectorAll(".item");
+
+filterButtons.forEach(btn => {
+
+btn.addEventListener("click", () => {
+
+document.querySelector(".filter-btn.active").classList.remove("active");
+btn.classList.add("active");
+
+const filter = btn.dataset.filter;
+
+items.forEach(item => {
+
+if(filter === "all" || item.classList.contains(filter)){
+item.classList.remove("hide");
+}
+else{
+item.classList.add("hide");
+}
+
+});
+
+});
+
+});
+
+</script>
+
+{% endblock %}
