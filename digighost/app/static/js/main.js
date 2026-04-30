@@ -293,36 +293,41 @@ document.querySelectorAll(".dock-text").forEach(text => {
   const spans = text.querySelectorAll("span");
 
   // 2️⃣ Mouse move effect
-  text.addEventListener("mousemove", (e) => {
+let ticking = false;
+
+text.addEventListener("mousemove", (e) => {
+
+  if (ticking) return;
+
+  requestAnimationFrame(() => {
 
     spans.forEach(span => {
-
       const rect = span.getBoundingClientRect();
       const center = rect.left + rect.width / 2;
       const distance = Math.abs(e.clientX - center);
 
-      const maxDistance = 250; 
-      let scale = 2 - (distance / maxDistance);
-
+      let scale = 1.5 - (distance / 300);
       if(scale < 1) scale = 1;
 
-      // Smooth GSAP animation
-      gsap.to(span, {
-        scale: scale,
-        duration: 0.25,
-        ease: "power3.out"
-      });
-
-      // Color shift activation
-      if(distance < 80){
-        span.classList.add("active");
-      } else {
-        span.classList.remove("active");
-      }
-
+      span.style.transform = `scale(${scale})`; // 🔥 NO GSAP HERE
     });
 
-  });
+     ticking = false;
+     });
+
+     ticking = true;
+    });
+
+      // Color shift activation
+    //   if(distance < 80){
+    //     span.classList.add("active");
+    //   } else {
+    //     span.classList.remove("active");
+    //   }
+
+    // });
+
+
 
   // 3️⃣ Reset on leave
   text.addEventListener("mouseleave", () => {
@@ -341,7 +346,7 @@ document.querySelectorAll(".dock-text").forEach(text => {
 
   });
 
-});
+
 
 
 /* ================= BENTO GALLERY SCRUB ================= */
@@ -368,7 +373,7 @@ function initBento(){
     trigger:gallery,
     scroller:"[data-scroll-container]",
     start:"top top",
-    end:"+=200%",
+    end:"+=100%",
     scrub:true,
     
   });

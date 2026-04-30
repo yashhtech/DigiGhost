@@ -21,8 +21,8 @@ const scrollContainer = document.querySelector("[data-scroll-container]");
 const locoScroll = new LocomotiveScroll({
     el: scrollContainer,
     smooth: true,
-    multiplier: 0.8,
-    lerp: 0.08
+    multiplier: 1,
+    lerp: 0.1
 });
 
 locoScroll.on("scroll", ScrollTrigger.update);
@@ -141,12 +141,14 @@ let mouseY = 0;
 let posX = 0;
 let posY = 0;
 
-document.addEventListener("mousemove", (e)=>{
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + "px";
-    cursor.style.top = mouseY + "px";
-});
+function animateCursor(){
+    posX += (mouseX - posX) * 0.15;
+    posY += (mouseY - posY) * 0.15;
+
+    follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+
+    requestAnimationFrame(animateCursor);
+}
 
 function animateCursor(){
     posX += (mouseX - posX) * 0.15;
@@ -368,7 +370,7 @@ function initBento(){
     trigger:gallery,
     scroller:"[data-scroll-container]",
     start:"top top",
-    end:"+=200%",
+    end:"+=100%",
     scrub:true,
     
   });
