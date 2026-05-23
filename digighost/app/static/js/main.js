@@ -362,8 +362,9 @@ function initDockText() {
 
             const span = document.createElement("span");
 
-            span.innerText = word + " ";
-
+            span.innerText = word;
+            span.style.display = "inline-block";
+            span.style.marginRight = "12px"; // adjust space here
             text.appendChild(span);
 
         });
