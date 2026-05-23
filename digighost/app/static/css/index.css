@@ -833,8 +833,8 @@ gap:40px;
     background:#000000 !important;
     color:#fff !important;
     padding:120px 8% 60px;
-    overflow:visible;
-    min-height:600px;
+    overflow:hidden;
+    min-height:auto;
     z-index:5;
 }
 
