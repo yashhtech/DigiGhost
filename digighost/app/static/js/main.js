@@ -22,6 +22,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initScroll();
 
+
+// ================= NAV TABS COLOR  =================
+
+const nav = document.querySelector(".nav");
+const lightSection = document.querySelector(".rank-slider-section");
+
+window.locoScroll.on("scroll", () => {
+
+    const rect = lightSection.getBoundingClientRect();
+
+    if(rect.top <= 100 && rect.bottom >= 100){
+
+        nav.classList.add("light-nav");
+
+    }else{
+
+        nav.classList.remove("light-nav");
+
+    }
+
+});
+
+
+
     // ================= INFINITE LOOP =================
 
     infiniteLoop(".row", 45);
@@ -239,6 +263,8 @@ function initCursor() {
 
     });
 }
+
+
 
 // ================= IMAGE WALL SLIDER =================
 
@@ -494,3 +520,80 @@ window.addEventListener("load", () => {
     }
 
 });
+
+
+
+/* ================= RANK SLIDER ================= */
+
+const rankSlides = document.querySelectorAll(".rank-slide");
+const nextBtn = document.querySelector(".rank-arrow.next");
+const prevBtn = document.querySelector(".rank-arrow.prev");
+
+let rankIndex = 0;
+
+function showRankSlide(index){
+
+    rankSlides.forEach(slide=>{
+        slide.classList.remove("active");
+    });
+
+    rankSlides[index].classList.add("active");
+}
+
+nextBtn.addEventListener("click",()=>{
+
+    rankIndex++;
+
+    if(rankIndex >= rankSlides.length){
+        rankIndex = 0;
+    }
+
+    showRankSlide(rankIndex);
+});
+
+prevBtn.addEventListener("click",()=>{
+
+    rankIndex--;
+
+    if(rankIndex < 0){
+        rankIndex = rankSlides.length - 1;
+    }
+
+    showRankSlide(rankIndex);
+});
+
+/* AUTO SLIDE */
+
+setInterval(()=>{
+
+    rankIndex++;
+
+    if(rankIndex >= rankSlides.length){
+        rankIndex = 0;
+    }
+
+    showRankSlide(rankIndex);
+
+},6000);
+
+/* ================= NAV COLOR CHANGE ================= */
+
+const nav = document.querySelector(".nav");
+
+if(window.locoScroll){
+
+    window.locoScroll.on("scroll", (args) => {
+
+        if(args.scroll.y > 700){
+
+            nav.classList.add("scrolled");
+
+        }else{
+
+            nav.classList.remove("scrolled");
+
+        }
+
+    });
+
+}
