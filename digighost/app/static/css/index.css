@@ -847,6 +847,141 @@ gap:40px;
 }
 
 
+/* ================= LOGO MARQUEE ================= */
+
+.logo-marquee-section{
+    width:100%;
+    overflow:hidden;
+    background:#fffefe;
+    padding:100px 0;
+    position:relative;
+    z-index:5;
+}
+
+/* HEADING */
+
+.logo-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.logo-heading h2{
+    font-size:64px;
+    line-height:1.1;
+    font-weight:700;
+    color:#000;
+}
+
+.logo-heading span{
+    color:#ff3b1d;
+}
+
+/* MARQUEE */
+
+.logo-marquee{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+}
+
+/* TRACK */
+
+.logo-track{
+    display:flex !important;
+    align-items:center;
+    flex-wrap:nowrap;
+
+    gap:50px;
+
+    width:max-content;
+
+    will-change:transform;
+
+    animation:logoScroll 18s linear infinite;
+}
+
+/* LOGOS */
+
+.logo-item{
+
+    flex:0 0 auto;
+
+    width:200px;
+    height:160px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* IMAGE */
+
+.logo-item img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    transition:.4s ease;
+}
+
+/* HOVER */
+
+.logo-item:hover img{
+    transform:scale(1.08);
+}
+
+/* ANIMATION */
+
+@keyframes logoScroll{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-50%);
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.logo-heading h2{
+    font-size:42px;
+}
+
+.logo-track{
+    gap:60px;
+}
+
+.logo-item{
+    width:130px;
+    height:80px;
+}
+
+}
+
+@media(max-width:600px){
+
+.logo-heading h2{
+    font-size:30px;
+}
+
+.logo-track{
+    gap:40px;
+}
+
+.logo-item{
+    width:90px;
+    height:60px;
+}
+
+}
+
 /* ================= FOOTER ================= */
 
 .dg-footer{
