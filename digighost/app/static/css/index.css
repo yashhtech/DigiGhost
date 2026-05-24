@@ -88,6 +88,12 @@ height:1px;
     color:black !important;
 }
 
+/* KEEP SERVICES WHITE */
+
+.nav.light-nav .services-menu > a{
+    color:white !important;
+}
+
 /* SERVICES DROPDOWN */
 
 .services-dropdown{

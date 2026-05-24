@@ -211,6 +211,7 @@ PACKAGING
 
 {% block extra_js %}
 
+
 <script>
 
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -220,7 +221,9 @@ filterButtons.forEach(btn => {
 
 btn.addEventListener("click", () => {
 
-document.querySelector(".filter-btn.active").classList.remove("active");
+document.querySelector(".filter-btn.active")
+.classList.remove("active");
+
 btn.classList.add("active");
 
 const filter = btn.dataset.filter;
@@ -236,10 +239,19 @@ item.classList.add("hide");
 
 });
 
+
+/* IMPORTANT */
+if(window.locoScroll){
+setTimeout(() => {
+window.locoScroll.update();
+}, 300);
+}
+
 });
 
 });
 
 </script>
+
 
 {% endblock %}
