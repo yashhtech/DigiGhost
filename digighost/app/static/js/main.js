@@ -92,8 +92,8 @@ function initScroll() {
     window.locoScroll = new LocomotiveScroll({
         el: scrollContainer,
         smooth: true,
-        multiplier: 0.8,
-        lerp: 0.08
+        multiplier: 0.6,
+        lerp: 0.12
     });
 
     const locoScroll = window.locoScroll;
@@ -462,8 +462,8 @@ function initBento() {
     gsap.from(items, {
         scale: 0.8,
         opacity: 0,
-        stagger: 0.15,
-        duration: 1,
+        stagger: 0.05,
+        duration: 0.5,
         ease: "power3.out",
 
         scrollTrigger: {
