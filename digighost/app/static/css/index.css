@@ -1,3 +1,4 @@
+
 *{
 margin:0;
 padding:0;
@@ -55,7 +56,8 @@ position:fixed;
 top:0px;
 left:0;
 width:100%;
-padding:30px 60px;
+padding:20px 40px;
+margin-bottom: -20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -73,6 +75,53 @@ width:1px;
 height:1px;
 }
 
+
+.logo-wrap{
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
+    margin-top:-10px;
+}
+
+.logo{
+    width:120px;
+    height:auto;
+
+    object-fit:contain;
+
+    transition:all .35s ease;
+
+}
+
+.logo:hover{
+    transform:scale(1.08);
+}
+
+@media(max-width:768px){
+    .logo{
+        width:90px;
+    }
+}
+
+.logo-wrap{
+    transform:translateY(-8px);
+}
+
+.top-tabs{
+    transform:translateY(-8px);
+}
+
+.menu-btn{
+    transform:translateY(-8px);
+}
+
+.top-tabs{
+    display:flex;
+    gap:30px;
+
+    margin-left:50px;     /* LOGO aur WORK ke beech gap */
+    margin-top:-3px;      /* links thoda upar */
+}
 /* DEFAULT WHITE */
 
 .top-tabs a,
@@ -81,17 +130,36 @@ height:1px;
     transition:.3s ease;
 }
 
-/* BLACK ONLY ON LIGHT SECTION */
+/* White section par aate hi sab black */
 
 .nav.light-nav .top-tabs a,
 .nav.light-nav .services-dropdown > a{
-    color:black !important;
+    color:#000 !important;
 }
 
+/* Hamburger lines */
+
+.nav.light-nav .menu-btn span{
+    background:#000 !important;
+}
+
+/* Dropdown menu white bg */
+
+.nav.light-nav .services-menu{
+    background:#fff !important;
+}
+
+.nav.light-nav .services-menu a{
+    color:#000 !important;
+}
+
+.nav.light-nav .services-menu a:hover{
+    color:red !important;
+}
 /* KEEP SERVICES WHITE */
 
 .nav.light-nav .services-menu > a{
-    color:white !important;
+    color:rgb(0, 0, 0) !important;
 }
 
 /* SERVICES DROPDOWN */
@@ -122,6 +190,8 @@ transform:translateY(10px);
 transition:0.3s;
 box-shadow:0 10px 30px rgba(0,0,0,0.4);
 z-index:999;
+max-height:350px;
+overflow-y:auto;
 }
 
 .services-menu a{
@@ -136,6 +206,32 @@ color:#7cff4f;
 padding-left:6px;
 }
 
+.services-menu::-webkit-scrollbar{
+    width:6px;
+}
+
+.services-menu::-webkit-scrollbar-track{
+    background:#222;
+    border-radius:20px;
+}
+
+.services-menu::-webkit-scrollbar-thumb{
+    background:#666;
+    border-radius:20px;
+}
+
+.services-menu::-webkit-scrollbar-thumb:hover{
+    background:#fff;
+}
+
+.footer-dropdown .services-menu{
+    max-height:300px;
+    overflow-y:auto;
+}
+.services-menu{
+    max-height:calc(100vh - 120px);
+    overflow-y:auto;
+}
 /* HOVER OPEN */
 
 .services-dropdown:hover .services-menu{
@@ -147,9 +243,10 @@ transform:translateY(0);
 
 .menu-btn{
 margin-left:auto;
+margin: top -1px !important; 
 position:relative;
-width:35px;
-height:25px;
+width: 45px;
+height: 32px;
 cursor:pointer;
 z-index:1001;
 display:flex;
@@ -159,7 +256,7 @@ justify-content:space-between;
 
 .menu-btn span{
 display:block;
-height:3px;
+height:4px;
 width:100%;
 background:white;
 border-radius:3px;
@@ -366,15 +463,17 @@ border-color:white;
 .top-tabs{
 display:flex;
 gap:30px;
+padding-bottom: 10px;
 }
 
 .top-tabs a{
 text-decoration:none;
 color:white;
-font-size:18px;
-font-weight:500;
+font-size:24px;
+font-weight:600;
 position:relative;
 transition:0.3s;
+ letter-spacing:0.5px;
 }
 
 
@@ -962,8 +1061,7 @@ gap:40px;
     position:relative;
     z-index:2;
     display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:60px;
+    grid-template-columns:2fr 1fr 1fr 1.3fr 1fr;    gap:60px;
     overflow: visible;
 }
 
@@ -1084,6 +1182,93 @@ transition:.3s;
 .footer-dropdown .services-menu a:hover{
 color:#7cff4f;
 padding-left:5px;
+}
+
+/* ================= NEWSLETTER ================= */
+
+.newsletter-box{
+    min-width:280px;
+}
+
+.newsletter-box h3{
+    font-size:22px;
+    margin-bottom:20px;
+    color:#fff;
+}
+
+.newsletter-box p{
+    color:#aaa;
+    font-size:15px;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.newsletter-input{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    border-bottom:1px solid rgba(255,255,255,.35);
+    padding-bottom:12px;
+}
+
+.newsletter-input input{
+    flex:1;
+    background:none;
+    border:none;
+    outline:none;
+
+    color:#fff;
+    font-size:16px;
+}
+
+.newsletter-input input::placeholder{
+    color:#777;
+}
+
+.newsletter-input button{
+    background:none;
+    border:none;
+
+    color:#c5ff00;
+    font-size:18px;
+    font-weight:700;
+
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.newsletter-input button:hover{
+    color:#fff;
+    transform:translateX(4px);
+}
+
+@media(max-width:1200px){
+
+    .footer-container{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:768px){
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .newsletter-input{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .newsletter-input input{
+        width:100%;
+    }
+
+    .newsletter-input button{
+        margin-top:10px;
+    }
 }
 
 /* RESPONSIVE */

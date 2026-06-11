@@ -24,23 +24,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ================= NAV TABS COLOR  =================
-
 const nav = document.querySelector(".nav");
-const lightSection = document.querySelector(".rank-slider-section");
 
 window.locoScroll.on("scroll", () => {
 
-    const rect = lightSection.getBoundingClientRect();
+    let isLight = false;
 
-    if(rect.top <= 100 && rect.bottom >= 100){
+    document.querySelectorAll(".light-section").forEach(section => {
 
-        nav.classList.add("light-nav");
+        const rect = section.getBoundingClientRect();
 
-    }else{
+        if(rect.top <= 100 && rect.bottom >= 100){
+            isLight = true;
+        }
 
-        nav.classList.remove("light-nav");
+    });
 
-    }
+    nav.classList.toggle("light-nav", isLight);
 
 });
 
@@ -597,3 +597,4 @@ if(window.locoScroll){
     });
 
 }
+

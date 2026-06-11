@@ -17,7 +17,7 @@
 <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
 
 </head>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <body>
 
 <div class="cursor"></div>
@@ -28,40 +28,40 @@
 <!-- ================= NAVBAR ================= -->
 <nav class="nav">
 
+    <!-- LOGO -->
+    <a href="/" class="logo-wrap">
+        <img src="{% static 'images/digighost-logo.png' %}" alt="The Digi Ghost" class="logo">
+    </a>
+
     <div class="top-tabs">
+        <a href="{% url 'work' %}">Work</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="#">Blogs</a>
 
-<a href="{% url 'work' %}">Work</a>
-<a href="{% url 'about' %}">About</a>
-<a href="#">Blogs</a>
+        <div class="services-dropdown">
+            <a href="{% url 'services' %}">Services</a>
 
-<div class="services-dropdown">
-<a href="{% url 'services' %}">Services</a>
-
-<div class="services-menu">
-
-<a href="#">SEO Services</a>
-<a href="#">Web Design & Development</a>
-<a href="#">Brand Strategy</a>
-<a href="#">Performance Marketing</a>
-<a href="#">Content Marketing</a>
-<a href="#">Analytics Agency</a>
-<a href="#">Graphic Design</a>
-<a href="#">Email Marketing</a>
-<a href="#">Social Media Management</a>
-<a href="#">Strategy & Consultancy</a>
-
-</div>
-</div>
-
-</div>
-
-    <div class="nav-center-target"></div>
+            <div class="services-menu">
+                <a href="#">SEO Services</a>
+                <a href="#">Web Design & Development</a>
+                <a href="#">Brand Strategy</a>
+                <a href="#">Performance Marketing</a>
+                <a href="#">Content Marketing</a>
+                <a href="#">Analytics Agency</a>
+                <a href="#">Graphic Design</a>
+                <a href="#">Email Marketing</a>
+                <a href="#">Social Media Management</a>
+                <a href="#">Strategy & Consultancy</a>
+            </div>
+        </div>
+    </div>
 
     <div class="menu-btn">
         <span></span>
         <span></span>
         <span></span>
     </div>
+
 </nav>
 
 <div class="menu-overlay">
@@ -152,7 +152,32 @@
         <a href="#">Student Journey</a>
         <a href="#">Alumni</a>
     </div>
+     
+     <!-- NEWSLETTER -->
+<div class="footer-col newsletter-box">
+    <h3>Newsletter</h3>
 
+    <p>
+        Smarter Marketing Starts Here
+    </p>
+
+    <form action="{% url 'newsletter_subscribe' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="newsletter-input">
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <button type="submit">
+                SEND ↗
+            </button>
+        </div>
+    </form>
+  </div>
     <!-- CONTACT -->
     <div class="footer-col">
         <h3><a href="#">Contact</a></h3>
@@ -160,6 +185,8 @@
         <a href="#">info@digighost.com</a>
         <a href="#">Satna, Madhya Pradesh</a>
     </div>
+
+    
 
 </div>
 

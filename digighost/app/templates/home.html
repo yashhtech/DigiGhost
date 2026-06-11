@@ -29,6 +29,10 @@
 
 <nav class="nav">
 
+ <a href="/" class="logo-wrap">
+        <img src="{% static 'images/digighost-logo.png' %}" alt="The Digi Ghost" class="logo">
+    </a>
+
 <div class="top-tabs">
 
 <a href="{% url 'work' %}">Work</a>
@@ -380,7 +384,7 @@
 
 <!-- ================== GOOGLE RANK SLIDER SECTION ================== -->
 
-<section class="rank-slider-section" data-scroll-section>
+<section class="rank-slider-section light-section" data-scroll-section>
 
     <div class="rank-slider">
 
@@ -461,7 +465,7 @@
 
 <!-- ================= CLIENT LOGO MARQUEE ================= -->
 
-<section class="logo-marquee-section" data-scroll-section>
+<section class="logo-marquee-section light-section" data-scroll-section>
 
     <div class="logo-heading">
 
@@ -610,6 +614,32 @@
         <a href="#">Student Journey</a>
         <a href="#">Alumni</a>
     </div>
+
+         <!-- NEWSLETTER -->
+    <div class="footer-col newsletter-box">
+    <h3>Newsletter</h3>
+
+    <p>
+        Smarter Marketing Starts Here
+    </p>
+
+    <form action="{% url 'newsletter_subscribe' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="newsletter-input">
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <button type="submit">
+                SEND ↗
+            </button>
+        </div>
+    </form>
+  </div>
 
     <!-- CONTACT -->
     <div class="footer-col">

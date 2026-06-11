@@ -1,103 +1,298 @@
+
 /* HERO */
 
+
+
 .contact-hero{
-height:100vh;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:rgb(254, 237, 42);
-overflow:hidden;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
 }
 
-.hero-video{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
+.hero-image{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    z-index:1;
+
+    /* Image ko sharp aur premium */
+    filter:brightness(.55) contrast(1.15) saturate(1.1);
 }
+
 
 .hero-overlay{
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(120, 110, 110, 0.135);
-z-index:-1;
+    position:absolute;
+    inset:0;
+
+    /* Premium dark gradient */
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(0,0,0,.15) 0%,
+        rgba(0,0,0,.35) 45%,
+        rgba(0,0,0,.75) 100%
+    );
+
+    z-index:2;
 }
 
-.hero-title{
-font-size:100px;
-font-weight:bolder;
-letter-spacing:5px;
-text-transform:uppercase;
-color:rgb(245, 236, 56);
-margin-right: 100px;
-font-family: Marcellus;
+/* Content */
+
+.hero-content{
+    position:absolute;
+    left:8%;
+    bottom:10%;
+
+    max-width:800px;
+    z-index:3;
+}
+
+.hero-content h1{
+    font-size:clamp(3rem,6vw,6rem);
+    font-weight:900;
+    color:#ffffff;
+    line-height:1;
+    margin-bottom:20px;
+    text-transform:uppercase;
+}
+
+.hero-content p{
+    font-size:clamp(1rem,2vw,1.4rem);
+    color:#f3dc70;
+    max-width:600px;
+    line-height:1.6;
 }
 
 
+/* ================= CONSULTATION ================= */
 
-
-/* SERVICES */
-
-.services{
-padding:120px 10%;
-background:white;
+.consultation-section{
+    background:#f5f5f5;
+    text-align:center;
+    padding:120px 8%;
 }
 
-.services-container{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:60px;
+.consultation-tag{
+    display:block;
+    font-size:clamp(1.5rem,2vw,2.4rem);
+    font-weight:500;
+    color:#000;
+    margin-bottom:30px;
 }
 
-.service-card{
-background:#7d7b7b;
-border-radius:50px;
-overflow:hidden;
-box-shadow:0 20px 40px rgba(0,0,0,.1);
-transition:.4s;
-text-align:center;
-padding-bottom:30px;
+.consultation-title{
+    font-size:clamp(3rem,7vw,7rem);
+    font-weight:900;
+    line-height:1.05;
+    color:#000;
+    margin-bottom:50px;
+    letter-spacing:-2px;
 }
 
-.service-card img{
-width:100%;
-height:260px;
-object-fit:cover;
+.consultation-title span{
+    position:relative;
+    display:inline-block;
+    z-index:1;
 }
 
-.service-card h3{
-margin-top:20px;
-font-size:28px;
+.consultation-title span::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:10px;
+    width:100%;
+    height:18px;
+    background:#f3dc70;
+    z-index:-1;
 }
 
-.service-card p{
-padding:10px 30px;
-color:#000000;
+.consultation-text{
+    max-width:1500px;
+    margin:0 auto;
+    font-size:clamp(1.2rem,2vw,2rem);
+    line-height:1.8;
+    color:#111;
 }
 
-.service-card:hover{
-transform:translateY(-10px);
-box-shadow:0 25px 50px rgba(0,0,0,.2);
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .consultation-section{
+        padding:80px 25px;
+    }
+
+    .consultation-title{
+        line-height:1.15;
+    }
+
+    .consultation-title span::after{
+        height:10px;
+        bottom:5px;
+    }
+
+    .consultation-text{
+        font-size:1.05rem;
+        line-height:1.9;
+    }
+}
+/* ================= INQUIRY SECTION ================= */
+
+.inquiry-section{
+    background:#f5f5f5;
+    padding:120px 5%;
+    margin-bottom: -50px;
 }
 
-.know-btn{
-display:inline-block;
-margin-top:10px;
-padding:12px 26px;
-background:#ff1a1a;
-color:white;
-text-decoration:none;
-border-radius:30px;
-transition:.3s;
+.inquiry-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
 }
 
-.know-btn:hover{
-background:black;
+.inquiry-card{
+    border-radius:24px;
+    padding:90px 70px;
+    min-height:600px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+
+    transition:.5s ease;
+    position:relative;
+    overflow:hidden;
 }
+
+.inquiry-card::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+    top:-120px;
+    right:-120px;
+    transition:.6s ease;
+}
+
+.inquiry-card:hover::before{
+    transform:scale(1.4);
+}
+
+.inquiry-card:hover{
+    transform:translateY(-12px);
+}
+
+.inquiry-yellow{
+    background:#f3dc70;
+    color:#000;
+}
+
+.inquiry-blue{
+    background:#0ea5d8;
+    color:#fff;
+}
+
+.inquiry-card h2{
+    font-size:clamp(2.5rem,4vw,4rem);
+    font-weight:800;
+    margin-bottom:50px;
+}
+
+.inquiry-card p{
+    font-size:clamp(1.1rem,1.5vw,1.8rem);
+    line-height:1.8;
+    max-width:600px;
+    margin-bottom:70px;
+}
+
+.inquiry-btn,
+.meeting-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    width:fit-content;
+
+    padding:28px 45px;
+
+    text-decoration:none;
+
+    font-size:1.3rem;
+    font-weight:800;
+
+    transition:.4s ease;
+}
+
+.inquiry-btn{
+    border:3px solid #000;
+    color:#000;
+}
+
+.meeting-btn{
+    border:3px solid #fff;
+    color:#fff;
+}
+
+.inquiry-btn:hover{
+    background:#000;
+    color:#fff;
+}
+
+.meeting-btn:hover{
+    background:#fff;
+    color:#000;
+}
+
+.inquiry-note,
+.meeting-note{
+    margin-top:50px;
+    font-size:1.15rem;
+    opacity:.9;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .inquiry-grid{
+        grid-template-columns:1fr;
+    }
+
+    .inquiry-card{
+        min-height:auto;
+        padding:70px 50px;
+    }
+}
+
+@media(max-width:768px){
+
+    .inquiry-section{
+        padding:80px 20px;
+    }
+
+    .inquiry-card{
+        padding:50px 30px;
+    }
+
+    .inquiry-btn,
+    .meeting-btn{
+        width:100%;
+        text-align:center;
+        font-size:1rem;
+        padding:20px;
+    }
+
+    .inquiry-note,
+    .meeting-note{
+        font-size:.95rem;
+    }
+}
+
 
 
 
@@ -116,7 +311,7 @@ margin-bottom:40px;
 font-family:Verdana, Geneva, Tahoma, sans-serif;
 text-decoration: double;
 font-weight: bolder;
-font-style: italic;
+color:#ff1a1a;
 }
 
 .map-container{

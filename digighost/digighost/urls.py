@@ -21,7 +21,9 @@ from app.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name='home'),
+    path('newsletter-subscribe/',newsletter_subscribe,name='newsletter_subscribe'),  
     path('contact/',contact, name='contact'),
+    path("contact-submit/",contact_submit,name="contact_submit"),
     path('about/',about, name='about'),
     path('terms/',terms, name='terms'),
     path('privacy/',privacy, name='privacy'),

@@ -10,64 +10,100 @@
 
 <!-- HERO -->
 
+
+
 <section class="contact-hero" data-scroll-section>
 
-<video autoplay muted loop playsinline class="hero-video">
-<source src="{% static 'videos/contacthero.mp4' %}" type="video/mp4">
-</video>
+    <img
+        src="{% static 'images/digimark.jpg' %}"
+        class="hero-image"
+        alt="Digital Marketing"
+    >
 
-<div class="hero-overlay"></div>
+    <div class="hero-overlay"></div>
 
-<div class="hero-content">
+    <div class="hero-content">
+        <h1>DIGITAL MARKETING</h1>
 
-<h1 class="hero-title">
-DIGITAL MARKETING
-</h1>
+        <p>
+            Grow your business with SEO, Social Media Marketing,
+            Performance Advertising, Content Strategy and
+            Modern Web Solutions.
+        </p>
+    </div>
 
+</section>
 
-</div>
+<section class="consultation-section light-section" data-scroll-section>
+
+    <span class="consultation-tag">
+        Get a Free Consultation
+    </span>
+
+    <h2 class="consultation-title">
+        Let's explore how we can
+        <span>work together</span>
+    </h2>
+
+    <p class="consultation-text">
+        Our team will work with you to understand your business
+        needs, your goals, and your vision. We'll listen carefully,
+        and then provide you with a detailed plan of action outlining
+        the steps we'll take to bring your project to life.
+    </p>
 
 </section>
 
 
-<!-- SERVICES -->
+<section class="inquiry-section light-section" data-scroll-section>
 
-<section class="services" data-scroll-section>
+    <div class="inquiry-grid">
 
-<div class="services-container">
+        <!-- LEFT CARD -->
 
-<div class="service-card">
+        <div class="inquiry-card inquiry-yellow">
 
-<img src="{% static 'images/marketing.jpg' %}">
+            <h2>Submit an Inquiry</h2>
 
-<h3>Digital Marketing</h3>
+            <p>
+                This is a simple way to connect with us,
+                request information, ask a question, or
+                even get started with a new project.
+            </p>
 
-<p>
-Grow your business with SEO, Social Media Marketing,
-Performance Ads and Content Marketing strategies.
-</p>
+            <a href="#contact-form" class="inquiry-btn">
+                LEAVE US A MESSAGE
+            </a>
 
-<a href="#" class="know-btn">Know More</a>
+            <span class="inquiry-note">
+                The first reply takes around a business day.
+            </span>
 
-</div>
+        </div>
 
+        <!-- RIGHT CARD -->
 
-<div class="service-card">
+        <div class="inquiry-card inquiry-blue">
 
-<img src="{% static 'images/webdev.jpg' %}">
+            <h2>Schedule a Meeting</h2>
 
-<h3>Web Development</h3>
+            <p>
+                Select a suitable time slot and have a video
+                call with a project manager to discuss your
+                needs.
+            </p>
 
-<p>
-We build modern websites, ecommerce platforms and
-high-performance digital products for brands.
-</p>
+            <a href="#" class="meeting-btn">
+                BOOK A VIDEO MEETING
+            </a>
 
-<a href="#" class="know-btn">Know More</a>
+            <span class="meeting-note">
+                Synced with the availability on both sides.
+            </span>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
@@ -75,7 +111,7 @@ high-performance digital products for brands.
 
 <!-- MAP -->
 
-<section class="map-section" data-scroll-section>
+<section class="map-section light-section" data-scroll-section>
 
 <h2 class="section-heading">Finding Us is Difficult ??</h2>
 
@@ -122,19 +158,24 @@ Send us a message and our team will reach you shortly.
 
 <div class="contact-form-box">
 
-<form>
+<form method="POST" action="{% url 'contact_submit' %}">
+    {% csrf_token %}
 
-<input type="text" placeholder="Your Name">
+    <input type="text" name="name" placeholder="Your Name" required>
 
-<input type="email" placeholder="Email Address">
+    <input type="email" name="email" placeholder="Email Address" required>
 
-<input type="tel" placeholder="Phone Number">
+    <input type="tel" name="phone" placeholder="Phone Number" required>
 
-<textarea placeholder="Your Message"></textarea>
+    <textarea
+        name="message"
+        placeholder="Your Message"
+        required
+    ></textarea>
 
-<button type="submit">
-Send Message
-</button>
+    <button type="submit">
+        Send Message
+    </button>
 
 </form>
 
@@ -154,10 +195,39 @@ opacity:0,
 duration:1
 })
 
+gsap.from(".hero-content h1",{
+    y:100,
+    opacity:0,
+    duration:1.2
+});
 
+gsap.from(".hero-content p",{
+    y:60,
+    opacity:0,
+    duration:1.2,
+    delay:.4
+});
 
 
 
 
 </script>
+
+{% if messages %}
+    {% for message in messages %}
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        Swal.fire({
+            toast: true,
+            position: "top-end",
+            icon: "success",
+            title: "{{ message }}",
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true
+        });
+    });
+    </script>
+    {% endfor %}
+{% endif %}
 {% endblock %}
